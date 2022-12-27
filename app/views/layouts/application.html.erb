@@ -11,9 +11,19 @@
   </head>
 
   <body>
-    <section class="hero is-fullheight is-default is-bold">
+    <section class="hero is-fullheight is-default is-bold has-background-success-light">
       <%= render "layouts/header" %>
-      <%= yield %>
+      <div class="hero-body" style="margin-top: 52px;">
+        <div class="container has-text-centered">
+          <% if notice %>
+            <p class="box has-background-success has-text-white"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="box has-background-danger has-text-white"><%= alert %></p>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
       <%= render "layouts/footer" %>
     </section>
   </body>

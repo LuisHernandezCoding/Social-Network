@@ -1,26 +1,41 @@
-<div class="hero-head">
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-brand">
-        <a class="navbar-item is-brand" href="/">
-          <%= image_tag 'logo.svg', alt: 'Logo', class: 'w-28 h-8' %>
-          <span class="navbar-item">Social-Latte</span>
-        </a>
-        <span class="navbar-burger burger" data-target="navbarMenu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
+<nav class="navbar is-white topNav has-background-success-dark is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="<%= root_path %>">
+        <%= image_tag("logo.svg", alt: "Logo", class: "logo", width: "112", height: "28") %> 
+      </a>
+      <div class="navbar-burger burger" data-target="topNav">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <div id="navbarMenu" class="navbar-menu">
-        <div class="navbar-end">
-          <div class="tabs is-right">
-            <ul>
-              <li class="is-active"><a href="<%= root_path %>">Home</a></li>
-            </ul>
+    </div>
+    <div id="topNav" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="<%= root_path %>">Home</a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <% if user_signed_in? %>
+            
+              <a href="<%= edit_user_registration_path %>" class="button is-primary is-small is-5 is-offset-1">
+                <span class="icon"><i class="fa fa-user"></i></span><span>Profile</span>
+              </a>
+              <%= button_to destroy_user_session_path, method: :delete, class: "button is-light is-small is-5 is-offset-1" do %>
+                  <span class="icon"><i class="fa fa-user-times"></i></span><span>Logout</span>
+              <% end %>
+            <% else %>
+              <a href="<%= new_user_registration_path %>" class="button is-primary is-small is-5 is-offset-1" data-method="delete" data-confirm="Are you sure?">
+                <span class="icon"><i class="fa fa-user-plus"></i></span><span>Register</span>
+              </a>
+              <a href="<%= new_user_session_path %>" class="button is-light is-small is-5 is-offset-1">
+                <span class="icon"><i class="fa fa-user"></i></span><span>Login</span>
+              </a>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
-  </nav>
-</div>
+  </div>
+</nav>

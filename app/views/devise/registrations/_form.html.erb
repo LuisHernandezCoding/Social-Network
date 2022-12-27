@@ -1,0 +1,73 @@
+<br>
+<div class="columns">
+  <div class="field column">
+    <div class="control">
+      <%= f.label :name, "First Name" %>
+      <%= f.text_field :name, autocomplete: "name", class: "input is-medium" %>
+    </div>
+    <% resource.errors.full_messages_for(:name).each do |message| %>
+      <em class="help is-danger"><%= message %></em>
+    <% end %>
+  </div>
+  <div class="field column">
+    <div class="control">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, autocomplete: "last_name", class: "input is-medium" %>
+    </div>
+    <% resource.errors.full_messages_for(:last_name).each do |message| %>
+      <em class="help is-danger"><%= message %></em>
+    <% end %>
+  </div>
+  <div class="field column">
+    <div class="control">
+      <%= f.label :username %>
+      <%= f.text_field :username, autocomplete: "username", class: "input is-medium" %>
+    </div>
+    <% resource.errors.full_messages_for(:username).each do |message| %>
+      <em class="help is-danger"><%= message %></em>
+    <% end %>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="field column">
+    <div class="control">
+      <%= f.label :email %>
+      <%= f.email_field :email, autocomplete: "email", class: "input is-medium" %>
+    </div>
+    <% resource.errors.full_messages_for(:email).each do |message| %>
+      <em class="help is-danger"><%= message %></em>
+    <% end %>
+  </div>
+  <div class="field column">
+    <div class="control">
+      <%= f.label :birth_date %>
+      <%= f.date_field :birth_date, autocomplete: "birth_date", class: "input is-medium" %>
+    </div>
+    <% resource.errors.full_messages_for(:birth_date).each do |message| %>
+      <em class="help is-danger"><%= message %></em>
+    <% end %>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="field column">
+    <div class="control">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "input is-medium" %>
+    </div>
+    <% resource.errors.full_messages_for(:password).each do |message| %>
+      <p class="help is-danger"><%= message %></p>
+    <% end %>
+  </div>
+  
+  <div class="field column">
+    <div class="control">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input is-medium" %>
+    </div>
+    <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
+      <p class="help is-danger"><%= message %></p>
+    <% end %>
+  </div>
+</div>
